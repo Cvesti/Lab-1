@@ -12,7 +12,7 @@ END = '\u001b[0m'
 
 plot_list = [[0 for i in range(10)] for i in range(10)]
 result = [0 for i in range(10)]
-
+ппп
 for i in range(10):
     result[i] = i ** 3
 
