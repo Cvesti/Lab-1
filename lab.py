@@ -83,3 +83,27 @@ def main():
 if __name__ == "__main__":
     main()
 
+
+
+
+
+#Узор на репите
+def draw_pattern():
+    
+    pattern = [
+        "######        ",
+        "#    #        ",
+        "#  ###        ",
+        "#  #          ",
+        "#  ######     "
+    ]
+    
+    repeat_vertical = 2
+    repeat_horizontal = 5
+    
+    for _ in range(repeat_vertical):
+        for line in pattern:
+            print(line * repeat_horizontal)
+
+if __name__ == "__main__":
+    draw_pattern()
