@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 #флаг бангладеша
 width = 22  
@@ -52,3 +53,33 @@ for line in graph:
 
 
 print('012345') 
+
+
+#ДИАГРАММА по sequence.txt
+def load_numbers_from_file(filename):
+    with open(filename, 'r') as file:
+        numbers = [float(line.strip()) for line in file.readlines()]
+    return numbers
+
+def main():
+    numbers = load_numbers_from_file('sequence.txt')
+    
+    
+    first_half = numbers[:125]
+    second_half = numbers[125:250]
+
+    sum_first_half = sum(abs(num) for num in first_half)
+    sum_second_half = sum(abs(num) for num in second_half)
+
+    labels = ['Первые 125 чисел', 'Вторые 125 чисел']
+    sizes = [sum_first_half, sum_second_half]
+
+    plt.figure(figsize=(8, 6))
+    plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+    plt.axis('equal') 
+    plt.title('Соотношение суммы по модулю первых и вторых 125 чисел')
+    plt.show()
+
+if __name__ == "__main__":
+    main()
+
