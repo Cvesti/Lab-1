@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+
 #флаг бангладеша
 width = 22  
 height = 11  
@@ -18,7 +20,7 @@ for y in range(height):
             print("\033[42m \033[0m", end="")
     print()
 
-
+#############################################################################
 #график функции y=2x+3
 
 x_values = np.arange(0, 6, 1)
@@ -52,8 +54,35 @@ for line in graph:
     print(output_line)
 
 
-print('012345') 
+print('012345')
+print() 
+#############################################################################
 
+
+#Узор на репите
+def draw_pattern():
+    RED = '\033[91m'
+    RESET = '\033[0m'
+    pattern = [
+        "######        ",
+        "#    #        ",
+        "#  ###        ",
+        "#  #          ",
+        "#  ######     "
+    ]
+    
+    repeat_vertical = 2
+    repeat_horizontal = 5
+    
+    for _ in range(repeat_vertical):
+        for line in pattern:
+            colored_line = line.replace('#', f'{RED}#')
+            print(colored_line * repeat_horizontal + RESET)
+
+if __name__ == "__main__":
+    draw_pattern()
+
+#############################################################################
 
 #ДИАГРАММА по sequence.txt
 def load_numbers_from_file(filename):
@@ -82,28 +111,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-#Узор на репите
-def draw_pattern():
-    
-    pattern = [
-        "######        ",
-        "#    #        ",
-        "#  ###        ",
-        "#  #          ",
-        "#  ######     "
-    ]
-    
-    repeat_vertical = 2
-    repeat_horizontal = 5
-    
-    for _ in range(repeat_vertical):
-        for line in pattern:
-            print(line * repeat_horizontal)
-
-if __name__ == "__main__":
-    draw_pattern()
