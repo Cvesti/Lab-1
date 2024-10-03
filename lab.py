@@ -61,14 +61,15 @@ print()
 
 #Узор на репите
 def draw_pattern():
-    RED = '\033[91m'
+    RED = '\033[91;31m'
     RESET = '\033[0m'
     pattern = [
-        "######        ",
-        "#    #        ",
-        "#  ###        ",
-        "#  #          ",
-        "#  ######     "
+        "######   ",
+        "#    #   ",
+        "#  ###   ",
+        "#  #     ",
+        "#  ######",
+        "  "
     ]
     
     repeat_vertical = 2
@@ -78,6 +79,7 @@ def draw_pattern():
         for line in pattern:
             colored_line = line.replace('#', f'{RED}#')
             print(colored_line * repeat_horizontal + RESET)
+            
 
 if __name__ == "__main__":
     draw_pattern()
