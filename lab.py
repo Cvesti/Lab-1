@@ -1,7 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
-
-
 
 #флаг бангладеша
 width = 22  
@@ -87,29 +84,50 @@ if __name__ == "__main__":
 #############################################################################
 
 #ДИАГРАММА по sequence.txt
-def load_numbers_from_file(filename):
-    with open(filename, 'r') as file:
-        numbers = [float(line.strip()) for line in file.readlines()]
-    return numbers
+# def load_numbers_from_file(filename):
+#     with open(filename, 'r') as file:
+#         numbers = [float(line.strip()) for line in file.readlines()]
+#     return numbers
 
-def main():
-    numbers = load_numbers_from_file('sequence.txt')
+# def main():
+#     numbers = load_numbers_from_file('sequence.txt')
     
     
-    first_half = numbers[:125]
-    second_half = numbers[125:250]
+#     first_half = numbers[:125]
+#     second_half = numbers[125:250]
 
-    sum_first_half = sum(abs(num) for num in first_half)
-    sum_second_half = sum(abs(num) for num in second_half)
+#     sum_first_half = sum(abs(num) for num in first_half)
+#     sum_second_half = sum(abs(num) for num in second_half)
 
-    labels = ['Первые 125 чисел', 'Вторые 125 чисел']
-    sizes = [sum_first_half, sum_second_half]
+#     labels = ['Первые 125 чисел', 'Вторые 125 чисел']
+#     sizes = [sum_first_half, sum_second_half]
 
-    plt.figure(figsize=(8, 6))
-    plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
-    plt.axis('equal') 
-    plt.title('Соотношение суммы по модулю первых и вторых 125 чисел')
-    plt.show()
+#     plt.figure(figsize=(8, 6))
+#     plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+#     plt.axis('equal') 
+#     plt.title('Соотношение суммы по модулю первых и вторых 125 чисел')
+#     plt.show()
 
-if __name__ == "__main__":
-    main()
+#############################################################################
+
+with open('sequence.txt', 'r') as file:
+    numbers = list(map(float, file.read().strip().split()))
+
+first_part = numbers[:125]
+second_part = numbers[125:250]  
+
+sum_first_part = sum(abs(num) for num in first_part)
+sum_second_part = sum(abs(num) for num in second_part)
+
+total_sum = sum_first_part + sum_second_part
+percent_first = (sum_first_part / total_sum) * 100
+percent_second = (sum_second_part / total_sum) * 100
+
+def print_ascii_bar(label, percentage):
+    bar_length = int(percentage // 2) 
+    bar = '#' * bar_length
+    print(f'{label}: [{bar:<50}] {percentage:.2f}%')
+
+print("\nПроцентное соотношение:")
+print_ascii_bar('Первые 125 чисел', percent_first)
+print_ascii_bar('Вторые 125 чисел', percent_second)
