@@ -1,17 +1,17 @@
 import numpy as np
 
 #флаг бангладеша
-width = 22  
-height = 11  
-circle_radius = 3  
-circle_center = (width // 2 - 5, height // 2)  
+WIDTH = 22  
+HEIGHT = 11  
+CIRCLE_RADIUS = 3  
+CIRCLE_CENTER = (WIDTH // 2 - 5, HEIGHT // 2)  
 
 def in_circle(x, y, center, radius):
     return (x - center[0])**2 + (y - center[1])**2 <= radius**2
 
-for y in range(height):
-    for x in range(width):
-        if in_circle(x, y, circle_center, circle_radius):
+for y in range(HEIGHT):
+    for x in range(WIDTH):
+        if in_circle(x, y, CIRCLE_CENTER, CIRCLE_RADIUS):
             print("\033[41m \033[31m", end="")
         else:
             print("\033[42m \033[0m", end="")
@@ -23,31 +23,31 @@ for y in range(height):
 x_values = np.arange(0, 6, 1)
 y_values = 2 * x_values + 3  
 
-height = 9
-width = 6
+HEIGHT = 9
+WIDTH = 6
 
-graph = [[' ' for _ in range(width)] for _ in range(height)]
+graph = [[' ' for _ in range(WIDTH)] for _ in range(HEIGHT)]
 
-for i in range(height):
+for i in range(HEIGHT):
     graph[i][0] = '|'
-for j in range(width):
-    graph[height - 1][j] = '_'
+for j in range(WIDTH):
+    graph[HEIGHT - 1][j] = '_'
 
 for x, y in zip(x_values, y_values):
-    if y < height: 
-        graph[height - 1 - y][x] = 'x'
+    if y < HEIGHT: 
+        graph[HEIGHT - 1 - y][x] = 'x'
 
 
-color_reset = "\033[0m"
-color_axis = "\033[34m"  
-color_point = "\033[32m"  
+COLOR_RESET = "\033[0m"
+COLOR_AXIS = "\033[34m"  
+COLOR_POINT = "\033[32m"   
 
 #вывод на график
 for line in graph:
     output_line = ''.join(line)
-    output_line = output_line.replace('|', f'{color_axis}|{color_reset}')
-    output_line = output_line.replace('-', f'{color_axis}-{color_reset}')
-    output_line = output_line.replace('x', f'{color_point}x{color_reset}')
+    output_line = output_line.replace('|', f'{COLOR_AXIS}|{COLOR_RESET}')
+    output_line = output_line.replace('-', f'{COLOR_AXIS}-{COLOR_RESET}')
+    output_line = output_line.replace('x', f'{COLOR_POINT}x{COLOR_RESET}')
     print(output_line)
 
 
@@ -69,13 +69,13 @@ def draw_pattern():
         "  "
     ]
     
-    repeat_vertical = 2
-    repeat_horizontal = 5
+    REPEAT_VERTICAL = 2
+    REPEAT_HORIZONTAL = 5
     
-    for _ in range(repeat_vertical):
+    for _ in range(REPEAT_VERTICAL):
         for line in pattern:
             colored_line = line.replace('#', f'{RED}#')
-            print(colored_line * repeat_horizontal + RESET)
+            print(colored_line * REPEAT_HORIZONTAL + RESET)
             
 
 if __name__ == "__main__":
