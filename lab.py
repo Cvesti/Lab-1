@@ -133,5 +133,6 @@ print_ascii_bar('Вторые 125 чисел', percent_second)
 
 
 
-__name__ == "__main__"
+if __name__ == "__main__":
+    draw_pattern()
    
