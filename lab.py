@@ -77,9 +77,8 @@ def draw_pattern():
             colored_line = line.replace('#', f'{RED}#')
             print(colored_line * REPEAT_HORIZONTAL + RESET)
             
+draw_pattern()
 
-if __name__ == "__main__":
-    draw_pattern()
 
 #############################################################################
 
@@ -131,3 +130,8 @@ def print_ascii_bar(label, percentage):
 print("\nПроцентное соотношение:")
 print_ascii_bar('Первые 125 чисел', percent_first)
 print_ascii_bar('Вторые 125 чисел', percent_second)
+
+
+
+__name__ == "__main__"
+   
